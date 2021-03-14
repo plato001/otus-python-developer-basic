@@ -19,7 +19,7 @@ EVEN = "even"
 PRIME = "prime"
 
 
-def isPrime(n):
+def is_prime(n):
 	"""
 	функция, которая проверяет явлется ли число простым
 	"""
@@ -32,7 +32,7 @@ def isPrime(n):
 	return True
 
 
-def filter_numbers(list_of_numbers, filter):
+def filter_numbers(list_of_numbers, filter_type):
     """
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
@@ -40,11 +40,11 @@ def filter_numbers(list_of_numbers, filter):
     """
     
     # создадим фильтр-функцию
-    if filter == ODD:
+    if filter_type == ODD:
     	filter_function = lambda x: x % 2 == 1
-    elif filter == EVEN:
+    elif filter_type == EVEN:
     	filter_function = lambda x: x % 2 == 0
     else:
-    	filter_function = lambda x: isPrime(x)
+    	filter_function = lambda x: is_prime(x)
 
-    return [number for number in list_of_numbers if filter_function(number)]
+    return list(filter(filter_function, list_of_numbers))
