@@ -45,6 +45,6 @@ def filter_numbers(list_of_numbers, filter_type):
     elif filter_type == EVEN:
     	filter_function = lambda x: x % 2 == 0
     else:
-    	filter_function = lambda x: is_prime(x)
+    	filter_function = is_prime
 
     return list(filter(filter_function, list_of_numbers))
